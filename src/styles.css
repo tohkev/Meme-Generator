@@ -58,15 +58,44 @@ body {
     background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
     border: none;
     border-radius: 5px;
-    margin-top: 2.5rem;
+    margin-top: 1.75rem;
 }
 
 .meme--meme-block {
     display: flex;
     justify-content: center;
     margin-top: 1.5rem;
+    position: relative;
 }
 
 .meme--template {
-    width: 36rem;
+    max-width: 36rem;
+}
+
+.meme--text {
+    position: absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    font-weight: 900;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow:
+        3px 3px 0 #000,
+        -3px -3px 0 #000,
+        3px -3px 0 #000,
+        -3px 3px 0 #000,
+        0 3px 0 #000,
+        3px 0 0 #000,
+        0 -3px 0 #000,
+        -3px 0 0 #000,
+        3px 3px 5px #000;
+}
+
+.bottom {
+    bottom: 0;
+}
+
+.top {
+    top: 0;
 }
