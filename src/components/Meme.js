@@ -7,8 +7,12 @@ export default function Meme() {
     const [memeStash, setMemeStash] = React.useState([])
 
     const [meme, setMeme] = React.useState({
-        currentText: ["Shut up", "and take my money"],
-        randomImage: "https://i.imgflip.com/3si4.jpg"
+        currentText: [
+            { id: 0, text: "shut up" },
+            { id: 1, text: "and take my money" }
+        ],
+        randomImage: "https://i.imgflip.com/3si4.jpg",
+        textInput: ""
     });
 
     function getNewMeme(event) {
@@ -29,13 +33,24 @@ export default function Meme() {
         setMeme(prevMeme => {
             return {
                 ...prevMeme,
-                currentText: [...prevMeme.currentText, value]
+                currentText: [...prevMeme.currentText, { id: nanoid(), text: value }],
+                textInput: ""
+            }
+        })
+    }
+
+    function handleChange(event) {
+        const { name, value } = event.target;
+        setMeme(prevMeme => {
+            return {
+                ...prevMeme,
+                [name]: value,
             }
         })
     }
 
     const listElements = meme.currentText.map(text => {
-        return <ListItem text={text} />
+        return <ListItem key={text.id} text={text.text} />
     })
 
     React.useEffect(() => {
@@ -53,8 +68,10 @@ export default function Meme() {
                             type="text"
                             className="meme--text-input"
                             placeholder="Add Text"
-                            name="currentText"
+                            name="textInput"
                             id="addText"
+                            value={meme.textInput}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="meme--options">
