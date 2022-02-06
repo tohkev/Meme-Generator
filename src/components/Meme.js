@@ -23,13 +23,14 @@ export default function Meme() {
     }
 
     function handleAdd(event) {
-        // const { name, value } = event.target;
-        // setMeme(prevMeme => {
-        //     return {
-        //         ...prevMeme,
-        //         [name]: value
-        //     }
-        // })
+        event.preventDefault();
+        const { value } = document.getElementById('addText');
+        setMeme(prevMeme => {
+            return {
+                ...prevMeme,
+                currentText: [...prevMeme.currentText, value]
+            }
+        })
     }
 
     const listElements = meme.currentText.map(text => {
@@ -51,7 +52,8 @@ export default function Meme() {
                             type="text"
                             className="meme--text-input"
                             placeholder="Add Text"
-                            name="topText"
+                            name="currentText"
+                            id="addText"
                         />
                     </div>
                     <div className="meme--options">
@@ -63,7 +65,6 @@ export default function Meme() {
                     <h2>Current Text:</h2>
                     <ul className="meme--text-list">
                         {listElements}
-
                     </ul>
                 </div>
             </div>
