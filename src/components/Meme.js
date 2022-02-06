@@ -1,13 +1,12 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faExpand, faCompress } from '@fortawesome/free-solid-svg-icons';
+import ListItem from './ListItem.js';
 
 export default function Meme() {
 
     const [memeStash, setMemeStash] = React.useState([])
 
     const [meme, setMeme] = React.useState({
-        topText: "",
+        currentText: ["Shut up", "and take my money"],
         randomImage: "https://i.imgflip.com/3si4.jpg"
     });
 
@@ -23,15 +22,19 @@ export default function Meme() {
         })
     }
 
-    function handleChange(event) {
-        const { name, value } = event.target;
-        setMeme(prevMeme => {
-            return {
-                ...prevMeme,
-                [name]: value
-            }
-        })
+    function handleAdd(event) {
+        // const { name, value } = event.target;
+        // setMeme(prevMeme => {
+        //     return {
+        //         ...prevMeme,
+        //         [name]: value
+        //     }
+        // })
     }
+
+    const listElements = meme.currentText.map(text => {
+        return <ListItem text={text} />
+    })
 
     React.useEffect(() => {
         fetch('https://api.imgflip.com/get_memes')
@@ -49,33 +52,17 @@ export default function Meme() {
                             className="meme--text-input"
                             placeholder="Add Text"
                             name="topText"
-                            onChange={handleChange}
                         />
                     </div>
                     <div className="meme--options">
-                        <button className="meme--btn" onClick="#">Add Text</button>
+                        <button className="meme--btn" onClick={handleAdd}>Add Text</button>
                         <button className="meme--btn new-image" onClick={getNewMeme}>Get New Image</button>
                     </div>
                 </form>
                 <div className="meme--active-text">
                     <h2>Current Text:</h2>
                     <ul className="meme--text-list">
-                        <li className="meme--text-item">
-                            <div className="meme--item">What</div>
-                            <div className="meme--icons">
-                                <FontAwesomeIcon icon={faExpand} />
-                                <FontAwesomeIcon icon={faCompress} />
-                                <FontAwesomeIcon icon={faTrash} />
-                            </div>
-                        </li>
-                        <li className="meme--text-item">
-                            <div className="meme--item">Huh</div>
-                            <div className="meme--icons">
-                                <FontAwesomeIcon icon={faExpand} />
-                                <FontAwesomeIcon icon={faCompress} />
-                                <FontAwesomeIcon icon={faTrash} />
-                            </div>
-                        </li>
+                        {listElements}
 
                     </ul>
                 </div>

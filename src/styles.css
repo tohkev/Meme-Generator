@@ -103,10 +103,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap:nowrap;
+    max-width: 37rem;
 }
 
 .meme--text-item:last-of-type {
     border-bottom: 1px solid rgb(97, 97, 97);
+}
+
+.meme--icons {
+    margin-left: 2rem;
 }
 
 .meme--icons * {
@@ -114,16 +120,25 @@ body {
     cursor: pointer;
 }
 
+.meme--item {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 70%;
+}
+
 /* **********************MEME IMAGE STYLES********************************** */
 .meme--right {
     max-width: 100%;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     position: relative;
 }
 
 .meme--template {
     max-width: 36rem;
+    height: auto;
     border: 1px solid rgb(179, 179, 179);
 }
 
