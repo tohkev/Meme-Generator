@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faExpand, faCompress } from '@fortawesome/free-solid-svg-icons';
 
 export default function Meme() {
 
@@ -56,10 +58,25 @@ export default function Meme() {
                     </div>
                 </form>
                 <div className="meme--active-text">
-                    <h2>Current Texts:</h2>
+                    <h2>Current Text:</h2>
                     <ul className="meme--text-list">
-                        <li className="meme--text-item">What</li>
-                        <li className="meme--text-item">Huh</li>
+                        <li className="meme--text-item">
+                            <div className="meme--item">What</div>
+                            <div className="meme--icons">
+                                <FontAwesomeIcon icon={faExpand} />
+                                <FontAwesomeIcon icon={faCompress} />
+                                <FontAwesomeIcon icon={faTrash} />
+                            </div>
+                        </li>
+                        <li className="meme--text-item">
+                            <div className="meme--item">Huh</div>
+                            <div className="meme--icons">
+                                <FontAwesomeIcon icon={faExpand} />
+                                <FontAwesomeIcon icon={faCompress} />
+                                <FontAwesomeIcon icon={faTrash} />
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
             </div>

@@ -36,7 +36,7 @@ body {
 .meme--left {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     margin-right: 2rem;
 }
 
@@ -96,14 +96,22 @@ body {
 
 .meme--text-item {
     list-style: none;
-    padding: 0.5rem 2rem;
+    padding: 1rem 2rem;
     border: 1px solid rgb(97, 97, 97);
     border-bottom: none;
     font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .meme--text-item:last-of-type {
     border-bottom: 1px solid rgb(97, 97, 97);
+}
+
+.meme--icons * {
+    margin-right: 1rem;
+    cursor: pointer;
 }
 
 /* **********************MEME IMAGE STYLES********************************** */
@@ -116,6 +124,7 @@ body {
 
 .meme--template {
     max-width: 36rem;
+    border: 1px solid rgb(179, 179, 179);
 }
 
 .meme--text {
