@@ -7,6 +7,7 @@ body {
     margin: 0;
 }
 
+/* **********************HEADER STYLES********************************** */
 .header--block {
     display: flex;
     align-items: center;
@@ -25,11 +26,31 @@ body {
     margin-right: 1rem;
 }
 
+.meme--main {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    margin-top: 4rem;
+}
+
+.meme--left {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-right: 2rem;
+}
+
+
+/* **********************FORM STYLES********************************** */
 .meme--form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.meme--active-text {
+    border-top: 2px solid rgb(204, 204, 204);
 }
 
 .meme--text-inputs {
@@ -39,33 +60,57 @@ body {
 
 .meme--text-input {
     padding: 0.5rem 0.5rem 0.4rem;
-    width: 16rem;
+    margin: 0 3rem;
+    width: 32rem;
     height: 3rem;
     font-size: 1.1rem;
     border-radius: 5px;
 }
 
-.meme--text-input:nth-of-type(2) {
-    margin-left: 6rem;
+.meme--options {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.meme--new-meme-btn {
-    width: 18rem;
-    height: 4rem;
+.meme--btn {
+    width: 35%;
+    height: 3rem;
     color: white;
     font-family: 'Karla', sans-serif;
     font-size: 1.2rem;
     background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
     border: none;
     border-radius: 5px;
-    margin-top: 1.75rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
+    vertical-align: middle;
 }
 
-.meme--meme-block {
+/* **********************CURRENT TEXT STYLES********************************** */
+
+.meme--text-list {
+    padding: 0;
+}
+
+.meme--text-item {
+    list-style: none;
+    padding: 0.5rem 2rem;
+    border: 1px solid rgb(97, 97, 97);
+    border-bottom: none;
+    font-size: 1.5rem;
+}
+
+.meme--text-item:last-of-type {
+    border-bottom: 1px solid rgb(97, 97, 97);
+}
+
+/* **********************MEME IMAGE STYLES********************************** */
+.meme--right {
+    max-width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
     position: relative;
 }
 
@@ -91,10 +136,6 @@ body {
         0 -3px 0 #000,
         -3px 0 0 #000,
         3px 3px 5px #000;
-}
-
-.bottom {
-    bottom: 0;
 }
 
 .top {
