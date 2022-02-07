@@ -96,6 +96,7 @@ export default function Meme() {
             text={text.text}
             handleDelete={handleDelete}
             handleResize={handleResize}
+            isLarge={text.textEnlarge}
         />
     })
 
