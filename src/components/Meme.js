@@ -49,6 +49,10 @@ export default function Meme() {
         })
     }
 
+    const textElements = meme.currentText.map(text => {
+        return (<h2 className="meme--text" draggable>{text.text}</h2>)
+    })
+
     const listElements = meme.currentText.map(text => {
         return <ListItem key={text.id} text={text.text} />
     })
@@ -88,7 +92,7 @@ export default function Meme() {
             </div>
             <div className="meme--right">
                 <img src={meme['randomImage']} alt="Meme Template" className="meme--template" />
-                <h2 className="meme--text top" draggable>{meme.topText}</h2>
+                {textElements}
             </div>
         </div>
     )
