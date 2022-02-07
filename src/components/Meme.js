@@ -1,6 +1,7 @@
 import React from 'react';
 import ListItem from './ListItem.js';
 import { nanoid } from 'nanoid';
+import Draggable from 'react-draggable';
 
 export default function Meme() {
 
@@ -8,8 +9,8 @@ export default function Meme() {
 
     const [meme, setMeme] = React.useState({
         currentText: [
-            { id: 0, text: "shut up" },
-            { id: 1, text: "and take my money" }
+            { id: 0, text: "shut up", default: { x: 258, y: 21 } },
+            { id: 1, text: "and take my money", default: { x: 172, y: 305 } }
         ],
         randomImage: "https://i.imgflip.com/3si4.jpg",
         textInput: ""
@@ -30,13 +31,15 @@ export default function Meme() {
     function handleAdd(event) {
         event.preventDefault();
         const { value } = document.getElementById('addText');
-        setMeme(prevMeme => {
-            return {
-                ...prevMeme,
-                currentText: [...prevMeme.currentText, { id: nanoid(), text: value }],
-                textInput: ""
-            }
-        })
+        if (value) {
+            setMeme(prevMeme => {
+                return {
+                    ...prevMeme,
+                    currentText: [...prevMeme.currentText, { id: nanoid(), text: value }],
+                    textInput: ""
+                }
+            })
+        }
     }
 
     function handleChange(event) {
@@ -50,7 +53,19 @@ export default function Meme() {
     }
 
     const textElements = meme.currentText.map(text => {
-        return (<h2 className="meme--text" draggable>{text.text}</h2>)
+        let defaultX = 0;
+        let defaultY = 0;
+
+        if (text.default) {
+            defaultX = text.default.x;
+            defaultY = text.default.y;
+        }
+
+        return (
+            <Draggable bounds="parent" defaultPosition={{ x: defaultX, y: defaultY }}>
+                <h2 className="meme--text" key={text.id}>{text.text}</h2>
+            </Draggable>
+        )
     })
 
     const listElements = meme.currentText.map(text => {
