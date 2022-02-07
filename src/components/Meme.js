@@ -52,6 +52,15 @@ export default function Meme() {
         })
     }
 
+    function handleDelete(id) {
+        setMeme(prevMeme => {
+            return {
+                ...prevMeme,
+                currentText: prevMeme.currentText.filter(text => text.id !== id)
+            }
+        })
+    }
+
     const textElements = meme.currentText.map(text => {
         let defaultX = 0;
         let defaultY = 0;
@@ -62,14 +71,19 @@ export default function Meme() {
         }
 
         return (
-            <Draggable bounds="parent" defaultPosition={{ x: defaultX, y: defaultY }}>
-                <h2 className="meme--text" key={text.id}>{text.text}</h2>
+            <Draggable key={text.id} bounds="parent" defaultPosition={{ x: defaultX, y: defaultY }}>
+                <h2 className="meme--text" key={text.id} id={text.id}>{text.text}</h2>
             </Draggable>
         )
     })
 
     const listElements = meme.currentText.map(text => {
-        return <ListItem key={text.id} text={text.text} />
+        return <ListItem
+            key={text.id}
+            id={text.id}
+            text={text.text}
+            handleDelete={handleDelete}
+        />
     })
 
     React.useEffect(() => {

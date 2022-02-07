@@ -9,7 +9,9 @@ export default function ListItem(props) {
             <div className="meme--icons">
                 <FontAwesomeIcon icon={faExpand} />
                 <FontAwesomeIcon icon={faCompress} />
-                <FontAwesomeIcon icon={faTrash} />
+                <FontAwesomeIcon icon={faTrash} onClick={() => {
+                    props.handleDelete(props.id)
+                }} />
             </div>
         </li>
     )
