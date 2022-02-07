@@ -7,7 +7,7 @@ export default function ListItem(props) {
         <li className="meme--text-item">
             <h4 className="meme--item">{props.text}</h4>
             <div className="meme--icons">
-                <FontAwesomeIcon icon={faLevelUpAlt} title="Add Whitespace" />
+                <FontAwesomeIcon icon={faLevelUpAlt} title="Add Whitespace" onClick={props.includeWhiteSpace} />
                 <FontAwesomeIcon icon={props.isLarge ? faCompress : faExpand} title={`${props.isLarge ? "Compress" : "Expand"} Text`} onClick={() => {
                     props.handleResize(props.id)
                 }} />

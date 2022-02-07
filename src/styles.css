@@ -131,16 +131,21 @@ body {
 /* **********************MEME IMAGE STYLES********************************** */
 .meme--right {
     width: 45%;
-    max-width: 40rem;
+    max-width: 45rem;
     display: flex;
+    flex-direction: column;
     position: relative;
+    border: 1px solid rgb(214, 214, 214);
+}
+
+.meme--whitespace {
+    height: 11rem;
 }
 
 .meme--template {
-    max-width: 40rem;
+    max-width: 45rem;
     min-height: 25rem;
     height: 100%;
-    border: 1px solid rgb(214, 214, 214);
 }
 
 .meme--text {

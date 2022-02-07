@@ -13,7 +13,8 @@ export default function Meme() {
             { id: 1, text: "and take my money", default: { x: 170, y: 329 }, textEnlarge: true }
         ],
         randomImage: "https://i.imgflip.com/3si4.jpg",
-        textInput: ""
+        textInput: "",
+        hasWhiteSpace: false
     });
 
     function getNewMeme(event) {
@@ -73,6 +74,15 @@ export default function Meme() {
         })
     }
 
+    function includeWhiteSpace() {
+        setMeme(prevMeme => {
+            return ({
+                ...prevMeme,
+                hasWhiteSpace: !prevMeme.hasWhiteSpace
+            })
+        })
+    }
+
     const textElements = meme.currentText.map(text => {
         let defaultX = 0;
         let defaultY = 0;
@@ -97,6 +107,7 @@ export default function Meme() {
             handleDelete={handleDelete}
             handleResize={handleResize}
             isLarge={text.textEnlarge}
+            includeWhiteSpace={includeWhiteSpace}
         />
     })
 
@@ -134,6 +145,7 @@ export default function Meme() {
                 </div>
             </div>
             <div className="meme--right">
+                {meme.hasWhiteSpace && <div className="meme--whitespace"></div>}
                 <img src={meme['randomImage']} alt="Meme Template" className="meme--template" />
                 {textElements}
             </div>
