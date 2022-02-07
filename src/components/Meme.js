@@ -9,8 +9,8 @@ export default function Meme() {
 
     const [meme, setMeme] = React.useState({
         currentText: [
-            { id: 0, text: "shut up", default: { x: 258, y: 21 } },
-            { id: 1, text: "and take my money", default: { x: 172, y: 305 } }
+            { id: 0, text: "shut up", default: { x: 258, y: 37 }, textEnlarge: true },
+            { id: 1, text: "and take my money", default: { x: 170, y: 329 }, textEnlarge: true }
         ],
         randomImage: "https://i.imgflip.com/3si4.jpg",
         textInput: ""
@@ -35,8 +35,8 @@ export default function Meme() {
             setMeme(prevMeme => {
                 return {
                     ...prevMeme,
-                    currentText: [...prevMeme.currentText, { id: nanoid(), text: value }],
-                    textInput: ""
+                    currentText: [...prevMeme.currentText, { id: nanoid(), text: value, textEnlarge: true }],
+                    textInput: "",
                 }
             })
         }
@@ -61,6 +61,18 @@ export default function Meme() {
         })
     }
 
+    function handleResize(id) {
+        setMeme(prevMeme => {
+            let newState = { ...prevMeme }
+            for (let i = 0; i < newState.currentText.length; i++) {
+                if (newState.currentText[i].id === id) {
+                    newState.currentText[i].textEnlarge = !newState.currentText[i].textEnlarge
+                }
+            }
+            return newState;
+        })
+    }
+
     const textElements = meme.currentText.map(text => {
         let defaultX = 0;
         let defaultY = 0;
@@ -72,7 +84,7 @@ export default function Meme() {
 
         return (
             <Draggable key={text.id} bounds="parent" defaultPosition={{ x: defaultX, y: defaultY }}>
-                <h2 className="meme--text" key={text.id} id={text.id}>{text.text}</h2>
+                <h2 className={`meme--text ${text.textEnlarge ? "enlarge" : ""}`} key={text.id} id={text.id}>{text.text}</h2>
             </Draggable>
         )
     })
@@ -83,6 +95,7 @@ export default function Meme() {
             id={text.id}
             text={text.text}
             handleDelete={handleDelete}
+            handleResize={handleResize}
         />
     })
 

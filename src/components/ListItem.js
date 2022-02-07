@@ -7,9 +7,11 @@ export default function ListItem(props) {
         <li className="meme--text-item">
             <h4 className="meme--item">{props.text}</h4>
             <div className="meme--icons">
-                <FontAwesomeIcon icon={faExpand} />
-                <FontAwesomeIcon icon={faCompress} />
-                <FontAwesomeIcon icon={faTrash} onClick={() => {
+                <FontAwesomeIcon icon={faExpand} title="Expand Text" />
+                <FontAwesomeIcon icon={faCompress} title="Compress Text" onClick={() => {
+                    props.handleResize(props.id)
+                }} />
+                <FontAwesomeIcon icon={faTrash} title="Delete Text" onClick={() => {
                     props.handleDelete(props.id)
                 }} />
             </div>

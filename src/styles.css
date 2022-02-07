@@ -145,25 +145,31 @@ body {
 
 .meme--text {
     position: absolute;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: white;
-    font-weight: 900;
-    font-size: 2.2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 1.75rem;
     cursor: pointer;
     margin: 0;
     z-index: 1000;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+.enlarge {
+    color: white;
+    font-weight: 900;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2.2rem;
     text-shadow:
-        3px 3px 0 #000,
-        -3px -3px 0 #000,
-        3px -3px 0 #000,
-        -3px 3px 0 #000,
-        0 3px 0 #000,
-        3px 0 0 #000,
-        0 -3px 0 #000,
-        -3px 0 0 #000,
-        3px 3px 5px #000;
+    3px 3px 0 #000,
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    0 3px 0 #000,
+    3px 0 0 #000,
+    0 -3px 0 #000,
+    -3px 0 0 #000,
+    3px 3px 5px #000;
 }
 
 .top {
