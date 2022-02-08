@@ -131,14 +131,19 @@ export default function Meme() {
                             value={meme.textInput}
                             onChange={handleChange}
                         />
+                        <button className="meme--btn" onClick={handleAdd}>Add Text</button>
                     </div>
                     <div className="meme--options">
-                        <button className="meme--btn" onClick={handleAdd}>Add Text</button>
+                        <label forHTML="meme--upload" className="meme--btn">
+                            <input type="file" accept="image/png, image/jpeg" id="meme--upload" className="meme--upload" />
+                            Upload Image
+                        </label>
+                        <p className="meme--options-text">or</p>
                         <button className="meme--btn new-image" onClick={getNewMeme}>Get New Image</button>
                     </div>
                 </form>
                 <div className="meme--active-text">
-                    <h2>Current Text:</h2>
+                    <h2 className="current-text-heading">Current Text:</h2>
                     <ul className="meme--text-list">
                         {listElements}
                     </ul>
