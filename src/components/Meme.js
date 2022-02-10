@@ -9,8 +9,8 @@ export default function Meme() {
 
     const [meme, setMeme] = React.useState({
         currentText: [
-            { id: 0, text: "shut up", default: { x: 258, y: 37 }, textEnlarge: true },
-            { id: 1, text: "and take my money", default: { x: 170, y: 329 }, textEnlarge: true }
+            { id: 0, text: "shut up", default: { x: 260, y: 24 }, textEnlarge: true },
+            { id: 1, text: "and take my money", default: { x: 176, y: 310 }, textEnlarge: true }
         ],
         randomImage: "https://i.imgflip.com/3si4.jpg",
         textInput: "",
@@ -83,6 +83,17 @@ export default function Meme() {
         })
     }
 
+    function useCustomImage(event) {
+        if (event.target.files && event.target.files[0]) {
+            setMeme(prevMeme => {
+                return {
+                    ...prevMeme,
+                    randomImage: URL.createObjectURL(event.target.files[0])
+                }
+            })
+        }
+    }
+
     const textElements = meme.currentText.map(text => {
         let defaultX = 0;
         let defaultY = 0;
@@ -134,8 +145,8 @@ export default function Meme() {
                         <button className="meme--btn" onClick={handleAdd}>Add Text</button>
                     </div>
                     <div className="meme--options">
-                        <label forHTML="meme--upload" className="meme--btn">
-                            <input type="file" accept="image/png, image/jpeg" id="meme--upload" className="meme--upload" />
+                        <label htmlFor="meme--upload" className="meme--btn">
+                            <input type="file" accept="image/png, image/jpeg" id="meme--upload" className="meme--upload" onChange={useCustomImage} />
                             Upload Image
                         </label>
                         <p className="meme--options-text">or</p>
