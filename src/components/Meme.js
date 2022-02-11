@@ -9,8 +9,8 @@ export default function Meme() {
 
     const [meme, setMeme] = React.useState({
         currentText: [
-            { id: 0, text: "shut up", default: { x: 260, y: 24 }, textEnlarge: true },
-            { id: 1, text: "and take my money", default: { x: 176, y: 310 }, textEnlarge: true }
+            { id: 0, text: "shut up", default: { x: 0, y: 28 }, textEnlarge: true },
+            { id: 1, text: "and take my money", default: { x: 8, y: 312 }, textEnlarge: true }
         ],
         randomImage: "https://i.imgflip.com/3si4.jpg",
         textInput: "",
@@ -142,15 +142,15 @@ export default function Meme() {
                             value={meme.textInput}
                             onChange={handleChange}
                         />
-                        <button className="meme--btn" onClick={handleAdd}>Add Text</button>
+                        <button className="meme--btn add-btn" onClick={handleAdd}>Add Text</button>
                     </div>
                     <div className="meme--options">
-                        <label htmlFor="meme--upload" className="meme--btn">
+                        <label htmlFor="meme--upload" className="meme--btn image-btn">
                             <input type="file" accept="image/png, image/jpeg" id="meme--upload" className="meme--upload" onChange={useCustomImage} />
                             Upload Image
                         </label>
                         <p className="meme--options-text">or</p>
-                        <button className="meme--btn new-image" onClick={getNewMeme}>Get New Image</button>
+                        <button className="meme--btn new-image image-btn" onClick={getNewMeme}>Get New Image</button>
                     </div>
                 </form>
                 <div className="meme--active-text">

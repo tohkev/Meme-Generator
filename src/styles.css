@@ -37,6 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     margin-right: 4rem;
 }
 
@@ -47,10 +48,6 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom: 2rem;
-}
-
-.meme--active-text {
-    border-top: 2px solid rgb(204, 204, 204);
 }
 
 .current-text-heading {
@@ -64,8 +61,8 @@ body {
 
 .meme--text-input {
     padding: 0.5rem 0.5rem 0.4rem;
-    margin-right: 2rem;
-    width: 20rem;
+    margin-right: 1rem;
+    width: auto;
     height: 3rem;
     font-size: 1.1rem;
     border-radius: 5px;
@@ -75,17 +72,21 @@ body {
     margin-top: 2.5rem;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
 .meme--options-text {
     font-size: 1.2rem;
+    margin: 0 1.5rem;
+}
+
+.add-btn {
+    width: 8rem;
 }
 
 .meme--btn {
     max-width: 15rem;
-    width: 35%;
     height: 3rem;
     color: white;
     font-family: 'Karla', sans-serif;
@@ -93,11 +94,15 @@ body {
     background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
     border: none;
     border-radius: 5px;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.image-btn {
+    width: 12rem;
 }
 
 .meme--btn:hover {
@@ -111,8 +116,17 @@ body {
 
 /* **********************CURRENT TEXT STYLES********************************** */
 
+.meme--active-text {
+    border-top: 2px solid rgb(204, 204, 204);
+    width: 100%;
+}
+
 .meme--text-list {
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
 }
 
 .meme--text-item {
@@ -125,6 +139,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap:nowrap;
+    width: 100%;
 }
 
 .meme--text-item:last-of-type {
@@ -155,6 +170,7 @@ body {
     max-width: 42rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: relative;
 }
 
@@ -165,7 +181,7 @@ body {
 }
 
 .meme--template {
-    width: auto;
+    width: 100%;
     height: auto;
     border: 1px solid rgb(214, 214, 214);
 }
@@ -178,6 +194,7 @@ body {
     z-index: 1000;
     font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 400;
+    white-space: nowrap;
 }
 
 .enlarge {
@@ -202,3 +219,111 @@ body {
 .top {
     top: 0;
 }
+
+
+@media (max-width: 1440px) {
+    .meme--text-list {
+        width: 100%;
+    }
+
+    .meme--template {
+        width: 41rem;
+    }
+}
+
+@media (max-width: 1250px) {
+    .header--block {
+        padding: 0.25rem 4rem;
+    }
+
+    .header--logo {
+        width: 4rem;
+    }
+
+    .meme--main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3.5rem;
+    }
+
+    .meme--right {
+        order: 1;
+        width: 100%;
+        
+    }
+
+    .meme--left {
+        order: 2;
+        width: 60%;
+        margin: 3rem 0 0;
+    }
+
+    .meme--template {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .header--block {
+        padding: 0.25rem 2rem;
+    }
+
+    .header--title {
+        white-space: nowrap;
+    }
+
+    .meme--left {
+        width: 90%;
+    }
+}
+
+@media (max-width: 460px) {
+    .header--title {
+        font-size: 1.75rem;
+    }
+
+    .header--logo {
+        width: 17%;
+    }
+
+    .meme--form {
+        width: 100%;
+    }
+
+    .meme--text-input {
+        width: 60%;
+    }
+
+    .meme--btn {
+        font-size: 1rem;
+        width: 45%;
+    }
+
+    .meme--options {
+        margin-top: 2rem;
+    }
+
+    .meme--options-text {
+        margin: 0 1rem;
+    }
+
+    .enlarge {
+        font-size: 2rem;
+    }
+
+    .meme--text-item {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .enlarge {
+        font-size: 1.5rem;
+    }
+
+    .meme--options-text {
+        margin: 0 0.5rem;
+    }
+}
+
