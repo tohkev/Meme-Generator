@@ -176,6 +176,7 @@ body {
 
 .meme--whitespace {
     height: 10rem;
+    width: 100%;
     border: 1px solid rgb(214, 214, 214);
     border-bottom: none;
 }
@@ -315,6 +316,10 @@ body {
     .meme--text-item {
         font-size: 1.25rem;
     }
+
+    .meme--whitespace {
+        height: 6rem;
+    }
 }
 
 @media (max-width: 320px) {
@@ -324,6 +329,10 @@ body {
 
     .meme--options-text {
         margin: 0 0.5rem;
+    }
+
+    .meme--whitespace {
+        height: 4.5rem;
     }
 }
 
